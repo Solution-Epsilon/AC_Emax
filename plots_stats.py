@@ -339,7 +339,7 @@ plt.show()
 #==== STATISTICAL ANALYSIS (Nonparametrical-tests) ====#
 
 #Kruskal + Dunn-Test (T) Table 1
-
+# Note: Code below: Indicates how many of the 500 simulations formed assemblies and were used in the analysis of the characteristics.
 '''
 import scikit_posthocs as sp
 
@@ -352,10 +352,10 @@ for i in range(0,5):
     df_emax = filter(pd.read_csv("{0}ormation_02\{1}ormation_0_{2}".format("f","f",beta[i]), index_col=0))
     df_kwin = pd.read_csv("{0}ormation_without_emax\{1}ormation_0_{2}_k_winners_".format("f","f",beta[i]), index_col=0)
     print("==== BETA:{0} ====".format(beta_float[i]))
-    print("##Adapted_Model")
-    print(df_emax.describe())
-    print("##Original Model")
-    print(df_kwin.describe())
+    print("##Adapted_Model")  
+    print(df_emax.info()) # Indicates how many of the 500 simulations formed assemblies and were used in the analysis of the characteristics.
+    #print("##Original Model")
+    #print(df_kwin.describe())
     print()
     df_emax["plasticity"] = beta_float[i]
     conc_mdf.append(df_emax)
@@ -407,9 +407,9 @@ for i in range(0,5):
     print("Shapiro with: ", p_with)
     print("Shapiro without: ", p_without)
     #print(df_with.describe())
-    #print(df_without.describe())
-    print(df_with)
-    print(df_without)
+    print(df_without.info())
+    #print(df_with)
+    #print(df_without)
     print("=======================")
     print()
     cdf_concat.append(df_with)
