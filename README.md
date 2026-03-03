@@ -7,16 +7,10 @@ Data and simulations for the article titled "Formation of Artificial Neural Asse
 The ‘plots_stat’ file must be in the same folder as the ‘data_code’ data.
 
 
-**Python:** Version 3.13.12\n
-
-**Pandas:** Version 2.3.3
-
-**Matplotlib:** Version 3.10.6
-
-**SciPy:** Version 1.16.4
-
-**NumPy:** Version 2.3.3
-
-**Seaborn:** Version 0.13.2
-
-**Scikit-Posthocs:** Version 0.11.4
+**Python:** Version 3.13.12  
+**Pandas:** Version 2.3.3  
+**Matplotlib:** Version 3.10.6  
+**SciPy:** Version 1.16.4  
+**NumPy:** Version 2.3.3  
+**Seaborn:** Version 0.13.2  
+**Scikit-Posthocs:** Version 0.11.4  
