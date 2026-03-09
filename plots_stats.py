@@ -203,7 +203,6 @@ for i in range(0,5):
     conc_mdf.append(mdf)
 cdf = pd.concat(conc_mdf)
 cdf_02 = pd.concat(conc_02)
-
 print(cdf_02)
 cdf['value'] = np.where(cdf['value']==1, "With inhibition", 'Without inhibition')
 sns.boxplot(x = "variable", hue = "value", y="size", data=cdf, flierprops={'marker': 'x', 'markersize': 5}, width=.7, palette=['lightskyblue', 'lightcoral'], linewidth=.5, ax=axes[1])
@@ -339,7 +338,6 @@ plt.show()
 #==== STATISTICAL ANALYSIS (Nonparametrical-tests) ====#
 
 #Kruskal + Dunn-Test (T) Table 1
-# Note: Code below: Indicates how many of the 500 simulations formed assemblies and were used in the analysis of the characteristics.
 '''
 import scikit_posthocs as sp
 
@@ -352,10 +350,10 @@ for i in range(0,5):
     df_emax = filter(pd.read_csv("{0}ormation_02\{1}ormation_0_{2}".format("f","f",beta[i]), index_col=0))
     df_kwin = pd.read_csv("{0}ormation_without_emax\{1}ormation_0_{2}_k_winners_".format("f","f",beta[i]), index_col=0)
     print("==== BETA:{0} ====".format(beta_float[i]))
-    print("##Adapted_Model")  
-    print(df_emax.info()) # Indicates how many of the 500 simulations formed assemblies and were used in the analysis of the characteristics.
+    #print("##Adapted_Model")  
+    #print(df_emax.info()) # Indicates how many of the 500 simulations formed assemblies and were used in the analysis of the characteristics.
     #print("##Original Model")
-    #print(df_kwin.describe())
+    print(df_kwin.describe())
     print()
     df_emax["plasticity"] = beta_float[i]
     conc_mdf.append(df_emax)
@@ -364,7 +362,6 @@ cdf = pd.concat(conc_mdf)
 #print(cdf)
 result = sp.posthoc_dunn(cdf, 'time', 'plasticity', 'bonferroni')
 print(result)
-#    df_kwin = pd.read_csv("{0}ormation_without_emax\{1}ormation_0_{2}_k_winners_".format("f","f",beta[i]), index_col=0).assign(Trial = 1)
 '''
 
 #Mann-Whitney (T) Table 1
@@ -377,17 +374,22 @@ for i in range(0,5):
     df_emax = filter(pd.read_csv("{0}ormation_02\{1}ormation_0_{2}".format("f","f",beta[i]), index_col=0))
     df_kwin = pd.read_csv("{0}ormation_without_emax\{1}ormation_0_{2}_k_winners_".format("f","f",beta[i]), index_col=0)
     
+    stat, p_emax = shapiro(df_emax["time"])
+    stat, p_kwin = shapiro(df_kwin["time"])
+
+    print("Shapiro time (emax): ", p_emax)
+    print("Shapiro time (kwin): ", p_kwin)
     stat, p = stats.mannwhitneyu(df_emax['time'],df_kwin['time'], alternative = 'two-sided')
     print("Beta {0}: ".format(beta_float[i]), p)
-    print("##Adapted_Model")
-    print(df_emax.describe())
-    print("##Original_Model")
-    print(df_kwin.describe())
+    #print("##Adapted_Model")
+    #print(df_emax.describe())
+    #print("##Original_Model")
+    #print(df_kwin.describe())
     print("=======================")
     print()
 '''
 
-#Mann-Whitney (Size, density) Table 1
+#Mann-Whitney/Kruskal-Wallis (Size, density) Table 1
 '''
 import scipy.stats as stats
 import scikit_posthocs as sp
@@ -399,15 +401,19 @@ for i in range(0,5):
     df_with = filter(pd.read_csv("{0}ormation_02\{1}ormation_0_{2}".format("f","f",beta[i]), index_col=0))
     df_without = filter(pd.read_csv("{0}ormation_without\{1}ormation_0_{2}".format("f","f",beta[i]), index_col=0))
     df_with['plasticity'] = beta_float[i]
+
+    stat, p_with = shapiro(df_with["size"])
+    stat, p_dens = shapiro(df_with["density"])
+    stat, p_without = shapiro(df_without["size"])
     
     stat, p = stats.mannwhitneyu(df_with['size'],df_without['size'], alternative = 'two-sided')
-    print("Beta {0}: ".format(beta_float[i]), p)
-    stat, p_with = shapiro(df_with["density"])
-    stat, p_without = shapiro(df_without["density"])
-    print("Shapiro with: ", p_with)
-    print("Shapiro without: ", p_without)
+    print("Shapiro density: ", p_dens)
+    print("Shapiro with (size): ", p_with)
+    print("Shapiro without (size): ", p_without)
+    print("Beta {0} / Mann-Whit: ".format(beta_float[i]), p)
+
     #print(df_with.describe())
-    print(df_without.info())
+    #print(df_without.info())
     #print(df_with)
     #print(df_without)
     print("=======================")
@@ -421,7 +427,6 @@ print("Kruskal Size")
 print(result_size)
 print("Kruskal Density")
 print(result_density)
-#result = sp.posthoc_dunn(cdf, 'time', 'plasticity', 'bonferroni')
 '''
 
 #Mann-Whitney (Overlap)
@@ -452,12 +457,22 @@ print(df_E.describe())
 
 print(df_K.describe())
 
+
+stat, p_emax = shapiro(df_E)
+stat, p_kwin = shapiro(df_K)
+
+print("Shapiro Overlap (emax): ", p_emax)
+print("Shapiro Overlap (kwin): ", p_kwin)
 stat, p = stats.mannwhitneyu(df_E,df_K, alternative = 'two-sided')
-print("p-value:", p)
+print("p-value (M-W):", p)
 '''
 
 #Mann-Whitney & Kruskal-Wallis: Recovery + Plot (8 - Figure 3-b / Table 1)
 '''
+# note: For Beta = 0.05, an error will occur with the Shapiro-Wilk test. This happens because all points in the distribution have a value of 1.0, meaning there was a complete recovery of the formed assemblages.
+#     Consequently, the test will return an error because there is no variance (Input data has range zero. The results may not be accurate.). The distribution for this value will resemble a Dirac delta function.
+#     Shapiro-Wilk requires a non-zero variance;
+
 import scipy.stats as stats
 import scikit_posthocs as sp
 
@@ -479,10 +494,17 @@ for i in range(0,5):
     df_e_max = pd.read_csv("recovery\{1}ecovery_e_max_0_{0}_15".format(beta[i],"r"), index_col=0).assign(Trial = 0)
     df_k_win = pd.read_csv("recovery\{1}ecovery_k_win_0_{0}_15".format(beta[i],"r"), index_col=0).assign(Trial = 1)
     print("BETA: {0}".format(beta_float[i]))
+
+    stat, p_emax = shapiro(df_e_max['0'])
+    stat, p_kwin = shapiro(df_k_win['0'])
+
+    print("Shapiro Retrie. (emax): ", p_emax)
+    print("Shapiro Retrie. (kwin): ", p_kwin)
+
     stat, p = stats.mannwhitneyu(df_e_max['0'],df_k_win['0'], alternative = 'two-sided')
     print("Mann-Whitney test: ", p)
-    print(df_e_max.describe())
-    print(df_k_win.describe())
+    #print(df_e_max.describe())
+    #print(df_k_win.describe())
     print()
     cdf_t = pd.concat([df_e_max,df_k_win])
     mdf = pd.melt(cdf_t, id_vars=["0"], value_vars=["Trial"])
@@ -512,6 +534,8 @@ legend = axes.legend(frameon = False)
 plt.show()
 '''
 
+
+###### The following code sections do not need to be executed. They are only intended for generating the images for the article. #####
 #Figure 1 (Paper)
 '''
 siz = 0.4
@@ -587,7 +611,7 @@ rect = [(-0.03, .45, .45, .5),#1
         (.05, 0.055, .37, .08)] 
 ax = [fig.add_axes(rect[i]) for i in range(8)]
 
-im_1 = plt.imread(get_sample_data('C:\\Users\\IRIS\\Desktop\\Mestrado\\Artigo\\A_2.png'))
+im_1 = plt.imread(get_sample_data('C:\\Users\\IRIS\\Desktop\\Artigos\\Artigo_Publicar\\Artigo_Publicar\\A_2.png'))
 ax[0].imshow(im_1)
 ax[0].axis('off')
 
@@ -688,7 +712,7 @@ df_mean.index = beta
 df_std.index = beta
 
 
-df_mean.plot.bar(yerr=df_std,rot = 0,edgecolor = 'black', capsize=4,color=["#A8F0F0","#A8F0BB","#EAF0A8","#AAA8F0","#F0A8A8"], ax = ax[3])
+df_mean.plot.bar(yerr=df_std,rot = 0,edgecolor = 'black', capsize=2,color=["#A8F0F0","#A8F0BB","#EAF0A8","#AAA8F0","#F0A8A8"], ax = ax[3])
 ax[3].legend(title = r'$\omega_{inh}$', frameon = False, prop={'size': 7}, loc =2 )
 ax[3].set_ylabel(r'Failure rate (mean)')
 ax[3].set_xlabel(r'Synaptic plasticity $(\beta)$')
@@ -699,6 +723,12 @@ plt.figtext(0.005, 0.95, "a)", fontsize=15,weight = 'bold')
 plt.figtext(0.45, 0.95, "b)", fontsize=15,weight = 'bold')
 plt.figtext(0.005, 0.45, "c)", fontsize=15,weight = 'bold')
 plt.figtext(0.45, 0.45, "d)", fontsize=15,weight = 'bold')
+
+plt.figtext(0.2, 0.93, "t = 1", fontsize=12,weight = 'bold')
+plt.figtext(0.313, 0.93, "t = 2", fontsize=12,weight = 'bold')
+plt.figtext(0.2, 0.69, "t = 3", fontsize=12,weight = 'bold')
+plt.figtext(0.313, 0.69, "t = 10", fontsize=12,weight = 'bold')
+
 
 plt.show() 
 '''
