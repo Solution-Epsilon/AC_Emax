@@ -14,3 +14,5 @@ The ‘plots_stat’ file must be in the same folder as the ‘data_code’ data
 **NumPy:** Version 2.3.3  
 **Seaborn:** Version 0.13.2  
 **Scikit-Posthocs:** Version 0.11.4  
+  
+All simulations were performed in Python on a Dell laptop equipped with an RTX 4050 graphics card (6GB VRAM), 16GB DDR5 RAM, and a 13th generation 16-core Intel processor.
