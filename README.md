@@ -1,4 +1,5 @@
-Data and simulations for the article titled "Formation of Artificial Neural Assemblies by Biologically Plausible Inhibition Mechanisms"
+Data and simulations for the article titled "Formation of Artificial Neural Assemblies by Biologically Plausible Inhibition Mechanisms"  
+Arxiv: https://arxiv.org/pdf/2603.12416
 
 1. AC.py: Corresponds to the simulation code.
 2. plots_stat: Plots and statistical tests of the data.
