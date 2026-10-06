@@ -1,4 +1,606 @@
-\documentclass{article}
+\documentclass[a4paper, 11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage{times}
+\usepackage[top = 3cm, left = 3cm, 
+            bottom = 2cm, right = 2cm]{geometry}
+\usepackage{lipsum}
+\usepackage[font={footnotesize}]{caption}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\setlength{\parindent}{1.3cm}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{epigraph}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{csquotes}
+\usepackage{fancyhdr}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{caption}
+\usepackage[version=4]{mhchem}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+
 \begin{document}
-Hello, GitHub!
-\end{document}
+
+\section*{Additional Editor Comments (if provided):}
+
+Thank you for your submission. The reviewers raise important issues regarding how methods are compared, including differences in the number of parameters and stopping criteria. We invite the resubmission but acknowledge that it might require a substantial amount of work to address Reviewer's comments.
+
+\section*{Journal Requirements:}
+
+If the reviewer comments include a recommendation to cite specific previously published works, please review and evaluate these publications to determine whether they are relevant and should be cited. There is no requirement to cite these works unless the editor has indicated otherwise.
+
+\begin{enumerate}
+    \item Please ensure that the CRediT author contributions listed for every co-author are completed accurately and in full.
+    
+    At this stage, the following Authors/Authors require contributions: Lucas Hoff, Gustavo Soroka, Mateus Guimaraes, Aline Villavicencio, and Marco Idiart. Please ensure that the full contributions of each author are acknowledged in the ``Add/Edit/Remove Authors'' section of our submission form.
+    
+    The list of CRediT author contributions may be found here:\\
+    \url{https://journals.plos.org/ploscompbiol/s/authorship#loc-author-contributions}
+    
+    \item We ask that a manuscript source file is provided at Revision. Please upload your manuscript file as a .doc, .docx, .rtf or .tex. If you are providing a .tex file, please upload it under the item type `LaTeX Source File' and leave your .pdf version as the item type `Manuscript'.
+    
+    \item Please provide an Author Summary. This should appear in your manuscript between the Abstract (if applicable) and the Introduction, and should be 150-200 words long. The aim should be to make your findings accessible to a wide audience that includes both scientists and non-scientists. Sample summaries can be found on our website under Submission Guidelines:\\
+    \url{https://journals.plos.org/ploscompbiol/s/submission-guidelines#loc-parts-of-a-submission}
+    
+    \item Please upload all main figures as separate Figure files in .tif or .eps format. For more information about how to convert and format your figure files please see our guidelines:\\
+    \url{https://journals.plos.org/ploscompbiol/s/figures}
+    
+    \item Please upload a copy of Figure 1 - 4 which you refer to in your text on pages 6, 11, and 14 and 16. Or, if the figure is no longer to be included as part of the submission please remove all reference to it within the text.
+    
+    \item In the online submission form, you indicated that your data will be submitted to a repository upon acceptance. We strongly recommend all authors deposit their data before acceptance, as the process can be lengthy and hold up publication timelines. Please note that, though access restrictions are acceptable now, your entire minimal dataset will need to be made freely accessible if your manuscript is accepted for publication. This policy applies to all data except where public deposition would breach compliance with the protocol approved by your research ethics board. If you are unable to adhere to our open data policy, please kindly revise your statement to explain your reasoning and we will seek the editor's input on an exemption.
+    
+    \item Please amend your detailed Financial Disclosure statement. This is published with the article. It must therefore be completed in full sentences and contain the exact wording you wish to be published.
+    \begin{enumerate}
+        \item[i)] State what role the funders took in the study. If the funders had no role in your study, please state: ``The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.''
+        \item[ii)] If any authors received a salary from any of your funders, please state which authors and which funders.
+    \end{enumerate}
+    If you did not receive any funding for this study, please simply state: ``The authors received no specific funding for this work.''
+    
+    \item Your current Financial Disclosure states, ``LH and MG received funding from CAPES. GS was funded by CNPq. AV's research is partly supported by UKRI (grants MR/U506734/1 and EP/T02450X/1) and EQUATE. MI received support from grant CNPq (406926/2025-5).''
+    However, your funding information on the submission form indicates that you received funding from the grant numbers grants MR/U506734/1 and EP/T02450X/1 are missing from the funding information and also the funder CNPq is out of order. Please indicate by return email the full and correct funding information for your study and confirm the order in which funding contributions should appear. Please be sure to indicate whether the funders played any role in the study design, data collection and analysis, decision to publish, or preparation of the manuscript.
+    
+    \item We have amended your Competing Interest statement to comply with journal style. We kindly ask that you double check the statement and let us know if anything is incorrect.
+\end{enumerate}
+
+\section{Reviewers}
+
+\section*{Reviewer \#1}
+
+
+This study improves upon the existing Assembly Calculus (AC) model by introducing a more biologically plausible inhibition mechanism, aiming to bring the model closer to the dynamics of real cortical networks and to enhance the formation and retrieval performance of neural assemblies. The core claim is that the proposed model outperforms the original AC model. However, the current manuscript does not provide sufficient evidence to fully substantiate what novel cognitive functions the E\%-WTA mechanism actually confers. This aspect needs to be strengthened in the revision.
+
+\subsection*{Major Issues}
+\begin{enumerate}
+    \item The central conclusion is that the new model outperforms the original AC model, and that the new model employs stricter and more stable stopping criteria. However, the experimental design lacks a crucial control: applying the new stopping criteria directly to the original AC model to test whether it would also yield more stable assemblies. This control experiment would help clarify whether the performance improvement stems from the fundamental difference in selection mechanisms (E\%-WTA vs. k-WTA) or merely from changes in the stopping rules. Without this condition, the attribution of the observed improvements remains ambiguous, weakening the overall persuasiveness of the conclusions.
+    
+    \item The Introduction and Methods sections provide a detailed account of how gamma oscillations implement neuronal selection through the sequence of ``the most strongly stimulated neuron fires first $\rightarrow$ recruits inhibitory interneurons $\rightarrow$ creates a temporal window.'' Yet, in the Results section, no experiment directly demonstrates that this temporal window indeed exerts the predicted regulatory effect on network dynamics. Readers cannot clearly discern the actual impact of this mechanism from the quantitative analyses presented. As a result, the argument for biological plausibility remains largely theoretical and lacks quantitative data support.
+    
+    \item In the model, the inhibitory synaptic weight ($\omega_{inh}$) is fixed and does not undergo Hebbian plasticity. However, in real cortical circuits, inhibitory synapses are also plastic. The manuscript does not discuss whether this simplifying assumption is reasonable, nor whether allowing inhibitory plasticity would significantly alter the results. Furthermore, the optimal parameters ($\beta \le 0.01$, $\omega_{inh} = -0.2$) identified in Figure 2d) were obtained through scanning within a specific network architecture ($n = 1000$, $p_s = 0.5$). Whether these parameters generalize across different network structures remains to be systematically evaluated.
+    
+    \item In the subsection ``Number of iteration, size and synaptic density,'' the authors compare assembly sizes under conditions with and without inhibition. However, they do not provide a mechanistic account of why this difference vanishes when $\beta = 0.001$ (i.e., why inhibition becomes ineffective at low learning rates). This phenomenon may reveal important boundary conditions of the model's operation, but it is currently only described descriptively, without deeper analysis.
+    
+    \item Two of the most important properties of neural assemblies in cognitive function---pattern completion and sequence memory---are not assessed in this study. Pattern completion is widely regarded as the gold standard for testing whether an assembly has genuinely formed. If the E\%-WTA model indeed produces more stable and precise assemblies, it should exhibit superior pattern completion capability. Sequence memory experiments would also be valuable, testing whether the E\%-WTA model supports the sequential activation and storage of multiple assemblies, and comparing its performance with the original AC model on sequential tasks. Additionally, the original AC framework defines a set of composable operations (e.g., project, merge). Whether the new model still supports these operations remains unexplored. These omissions significantly constrain the manuscript's contribution to our understanding of cognitive functions.
+\end{enumerate}
+
+\subsection*{Minor Issues}
+\begin{enumerate}
+    \setcounter{enumi}{5}
+    \item The caption for Figure 3c), ``Overlap matrix of the stimuli (right) and of the assemblies in a memory area (left)'', has the left and right parts reversed. Please verify and correct this.
+    
+    \item Statistical significance results should be annotated directly on the figures. While Table 2 presents the results of significance tests, adding significance markers (such as asterisks or letter-based groupings) directly onto the relevant figures (e.g., Figure 3) would greatly facilitate readers' ability to quickly and intuitively grasp the statistical relationships among multiple conditions.
+\end{enumerate}
+
+\section*{Reviewer \#2 (neural-assemblies-review.pdf)}
+
+The paper investigates a model based on the Assembly Calculus framework, where two key modifications are introduced:
+\begin{itemize}
+    \item E\%-winners-take-all, where the activation of a neuron depends on its relative input compared to that of the highest input neuron, as opposed to absolute rank
+    \item Inhibitory connections (original only excitatory)
+\end{itemize}
+
+The authors compare the behaviour during assembly formation of the model to the original version, showing both increased stability of assembly formation and orthogonalization of overlapping sensory input in the memory area.
+
+\subsection*{Major overall concerns}
+
+The main contribution of the paper remains unclear to me. If I had to come up with a sentence of the style ``Adding A and B to the original Assembly Calculus benefits assembly formation via mechanisms X and Y'' I would have a hard time identifying X and Y.
+
+Computational papers (usually) fall short on some aspects: analytical results, in-depth explanation of the mechanisms involved in the results, connection to experimental data\dots But I feel like in its current form the paper does not excel in any of those. The current spirit is probably closest to explaining how the biological mechanism of E\%-WTA actually can benefit assembly formation, and that is the main direction I would take to improve the paper.
+
+In this sense, as it stands the manuscript is highly descriptive. Many of the current results could be included as a robustness measure in the supplementary material, with the authors instead using the main text and figures to explain the ``why''.
+
+Additionally, there are probably some low-hanging fruit in terms of analytics. Could the authors replicate some of the original derivations with this activation function and show that they match simulations? This might actually also help understand the mechanisms that make this activation function beneficial.
+
+The authors mention how this mechanism is connected to gamma oscillations and power-law distributions. A figure showing this link, some experimental data, and how the model reproduces (or simply has embedded into it) that same data, and how the original AC model does not include it could also be nice.
+
+To be completely transparent, while I am recommending major revisions in this round, I find it unlikely to recommend acceptance if the revised version of the manuscript does not do a good job at mechanistically explaining how the model works, differs (in the process/dynamics, not definition) from the original, and how that benefits assembly formation. I would also be looking to see some effort in either improving the theory behind it or the connection with experiments. I understand the proposed revisions are rather large and maybe the authors would rather take the time to re-submit in the future.
+
+\subsection*{Feedback and clarifying questions}
+
+\subsubsection*{Introduction}
+\textbf{I1} - The first paragraph [P2L35-P2L55] perhaps expands too much on the basics of all the background and motivation for the original Assembly Calculus. This is the starting point now so briefly stating what it is and a summary of the original motivation would probably be enough.
+
+\textbf{I2} - Could the authors explain what they mean when they say that k-WTA dynamics ``would not be a concern'' if the probability [\dots] followed a normal distribution''?
+
+\textbf{I3} - The last paragraph could explain more in detail the results and again aim at describing the findings [instead of ``we investigate several properties'' say ``we find that feed-forward inhibition does X, yielding better pattern separation (for example)'']
+
+\subsubsection*{Minor}
+\textbf{I4} - Ref. [25] shows ``Anonymous Authors'' but probably refers to Meshulam \& Bialek (2025)
+
+\subsubsection*{Methods}
+\textbf{M1} - The authors make a great effort to explore the parameter space. However, they leave out of the sweep what is probably one of the most important parameters: $\epsilon$. I understand $\tau$ and $d$ are physiological parameters and the used $\epsilon$ seems reasonable to me. However, what happens when $\epsilon$ goes from 0 to 1? What is the range under which the model behaves well and what breaks out of that range? Depending on the results, you might get some connection with experimental evidence for free (e.g. turns out that the ratio across $\tau$ and $d$ in different regions always falls under the well-behaved region, even though the two might co-vary).
+
+\textbf{M2} - I am not sure synaptic density as defined here is the best metric to use to quantity intra-assembly connectivity. If I understand correctly, given that there is multiplicative plasticity, if a synapse is initialized to zero it will stay 0, and likewise a non-zero synapse cannot go to zero. Seems odd to me to use a metric that is defined based on the number of connections. Maybe I am missing something but if this is the case I would suggest using a metric that takes into account the actual connectivity weight (could be as average sum of incoming connections from other assembly neurons divided by average sum of incoming connections from non-assembly neurons, see similar measures for synaptic assemblies experimentally (Lee et al, Nature Neuroscience, 2023).
+
+\textbf{M3} - There is a modelling choice of changing the connection probability with respect to the original model (even $p_s \cdot (1 - p_i) = 0.4$, bigger than the original $p$). At the end of the results we find out why: it needs that to work! It is not necessarily a problem given that additional inhibition has been introduced, but I would like to see in a revised version the mechanism that makes this the case and how it compares to robustness in the original model with $p$. If both have a sweet spot it is fine, each is competing fairly. If the presented model only wins for one value of $p_s$ and the other one wins for the rest of values, then the claim ``this model is more stable'' would be less defensible. In any case this is not an ML conference, if we understand why, given these changes, the probability of connection interacts with assembly formation in a particular manner that is still cool!
+
+\subsubsection*{Minor}
+\textbf{M4} - [P4L23] ``In your model'' $\rightarrow$ ``In our model''
+
+\textbf{M5} - I would remove Figure 1b as multiple memory areas are not explored in the paper
+
+\textbf{M6} - This figure needs better resolution (Most do actually). Also labels should be much bigger, very hard to read
+
+\textbf{M7} - In 1f), you should also colour the ones active red, ideally specifying what $K$ is. Maybe it would be more useful to understand the difference between the mechanisms to show two input distributions and how changing the highest input changes which ones are active in one case (e.g. 2 in one, 4 in the other), while using a top-2 only two are selected in both cases).
+
+\textbf{M8} - What is the asterisk in $w_{inh}$ in Table 1?
+
+\subsubsection*{Results}
+\textbf{R1} - Could the authors include in the methods distinct equations for feed-forward and recurrent synaptic initialization? (if I understand correctly only feed-forward contains inhibition). Similarly, please state at the beginning that inhibition is initially absent. If it is always present, please change P12L257-L259 phrasing.
+
+\textbf{R2} - Would be nice to plot the recurrent connectivity matrix across assemblies (pixel $ij$ is mean connectivity from $j$ to $i$). (Figure 3).
+
+\subsubsection*{Minor}
+\textbf{R3} - (But very important): Again Figure resolution and label/ticks size
+
+As I consider results need heavy editing, not giving such detailed feedback, but here are some suggestions for improvement. I understand each of the reviewers might come with a full paper proposal of their own. These are only examples of how I would aim at improving in the areas that for me are the weakest at the moment. I would be very happy to propose acceptance if I feel like the revised version of the manuscript has addressed them even though it has been done in a completely different manner to the suggestions here proposed.
+
+\begin{enumerate}
+    \item Finding a title of the form: ``Competitive dynamics inspired by gamma oscillations and inhibition benefit assembly formation by doing what we show in Figure 2 and in Figure 4''. (No need to make it the actual title)
+    
+    Then
+    
+    \item Using Figure 2 to show mechanistically how learning works in one of the best working examples. Some example questions I think would be interesting to answer:
+    \begin{enumerate}
+        \item[2.1 -] How do input statistics and initial random connectivity distribute neural input at the beginning? (Simulations + ideally closed form solution of the initial state if easy to get). Given this input distribution, what $K$ would lead to the same average number of neural assemblies formed?
+        \item[2.2 -] How do synaptic input statistics evolve with time, and how does the associated top-$K$ [the one that at each time interval would make it equivalent to the proposed model] distribution change with time? This is starting to pinpoint how the model differs from the original: If the equivalent $K$ remains approximately the same then this means that the original AC could behave the same if $K$ is chosen right. How does the mean of intra-assembly and inter-assembly synapses evolve with time?
+        \item[2.3 -] Now showing a failure case of failure in the original AC model where the proposed model succeeds. What failed in the original model and how did the proposed activation or inhibition mechanism prevent the manuscript model from failing? The idea is that after looking at Figure 2, the reader understands intuitively how the model works, how that mechanism is different from the original, and how that difference helps learning.
+    \end{enumerate}
+    
+    \item Then comes Figure 3. I would personally mix the original manuscript Figure 2 and previous Table 2 into a single revised manuscript Figure 3 saying: ``Our model is generally better using these metrics across these parameters''. Showing in the figure the parameter(s) that really reflects better stability / convergence and anecdotical magnitudes that are more descriptive can go in a Supplementary Figure.
+    
+    \item Now: ``it can actually do very cool stuff like learning under stressful conditions such as overlapping patterns.'' Again I would first show the inner workings of one example simulation to explain the mechanism. Then showing the statistics showing when the proposed model is better, not only in that particular example. This could be Figure 4 and the previous Figure 4 can go as a supplementary. I would however again extend it to explain why the model depends on $p_s$ in this manner, and how the original AC behaves with $p_s$. 
+    
+    \item Figure 5 could show either some analytical results matching simulations or connection with experimental data would make would make the paper more rounded.
+\end{enumerate}
+
+
+\section*{Reviewer \#3 (PR\_2.pdf)}
+
+\subsection*{Overview}
+The paper extends the Assembly Calculus (AC) framework by replacing $k$-winners-take-all with E\%-winners-take-all, a selection rule derived from gamma-cycle dynamics in which the number of firing neurons is determined by the most strongly driven neuron rather than fixed in advance. A second modification assigns a fraction of synapses negative weight, derived from cortical excitation-inhibition balance. The architecture consists of a stimulus area ($S$) projecting into a memory area ($M$), where neurons form recurrent connections among themselves and are subject to multiplicative Hebbian plasticity. Projections between multiple memory areas are described but not simulated. A fixed subset of $S$ neurons is clamped active, and the resulting firing pattern in $M$ is followed until it reaches a fixed point. The authors propose stricter formation criteria than AC: the active set must be stationary across iterations, no new neurons may join it, and its synaptic density must exceed that of the memory area. Under these criteria they report emergent assembly sizes controlled by inhibition, faster convergence than AC at most learning rates, near-complete recovery of an assembly when its stimulus is re-presented, and reduced overlap between assemblies stored in the same area.
+
+\subsection*{Major comments}
+The retrieval experiment re-presents the identical stimulus to an unchanged network, so it asks whether a fixed point is a fixed point - a property the formation criterion already guarantees by construction. Medians of exactly 1.00 with zero-width interquartile ranges are the expected outcome, not evidence of quality. The same reasoning explains why the AC baseline scores lower: its stopping rule never required a fixed point, as the authors themselves demonstrate in Fig 2b. The comparison therefore measures a difference in definitions.
+
+The metrics as constructed also fail to penalize degenerate solutions. A model that allocated a single neuron per stimulus would achieve perfect retrieval and zero overlap while storing nothing. That this is a live failure mode is evident from the authors' need to impose $\vert{}A\vert{}_{min} = 6$ by hand.
+
+Further, the claims about ``efficient storage'' and ``efficient representation of information'' are not supported. Nothing in this model is optimized, due to the lack of error signal - the system is not forced to learn optimally. Hence the problem of new ensembles destroying old ones that authors report.
+
+The question about introducing an error-signal is a wide one, since it also requires changes to the original architecture (and, frankly, it can be debated from a biological plausibility standpoint, although I personally would try it to see what changes). However, a simple approach may suffice.
+
+To separate real attractor stability from a tautology of the formation criterion, retrieval should be tested with a degraded cue, not the identical stimulus: present a random subset of the original $S$ neurons (varying the retained fraction) or add noise/rewiring to the synapses post-formation, and plot $|A|_{rec}/|A|$ against degradation level. A real basin of attraction degrades steadily; a model that just re-finds its own fixed point should collapse once the cue departs from training. To rule out the degenerate single-neuron-per-stimulus code, the authors should report retrieval fidelity and pairwise overlap as a function of the number of assemblies stored in one area ($n = 1\dots N$), alongside total neurons committed. A trivial code would show near-zero overlap and perfect retrieval independent of $n$, with committed neurons scaling minimally with $n$; departure from that signature, and the point where retrieval starts to fail, would give a real measure of capacity and directly quantify the forgetting effect already visible in Fig 4c.
+
+\subsection*{Minor comments}
+\begin{enumerate}
+    \item \textbf{Survival bias}\\
+    Reported medians (size, density, formation time, recovery) are computed only over runs meeting the formation criteria, and success rate itself varies with $\beta$ and $\omega_{inh}$ (Fig 2d). This means that parameters reported are potentially biased by varying $\beta$ and $\omega_{inh}$.
+
+    \item \textbf{Model comparisons vary multiple parameters at once.}\\
+    E\%-WTA and AC differ in $p_s$ (0.5 vs 0.1), $k_s$ (200 vs 37), and the presence of inhibitory synapses simultaneously. Differences in convergence speed or retrieval cannot be attributed to the selection mechanism alone without a separate test isolating each change.
+
+    \item \textbf{Parameters were tuned on the same data used to report results.}\\
+    $\omega_{inh}$ and $\beta$ were selected by grid search to minimize failure rate (Fig 2d), then reused for all headline comparisons (Table 2, Figs 3--4) with no held-out validation that this choice generalizes.
+\end{enumerate}
+
+\subsection*{Conclusion}
+I believe the work is interesting at its core and explores a complicated subject of unsupervised memory formation. Whilst the `unsupervisedness' of the real brain's memory formation process is a subject to debate (one may argue that error signal comes with an emotional response), the endeavor is great.
+
+
+\section*{Reviewer \#4}
+
+The work ``Formation of Artificial Neural Assemblies \dots'' by Hoff et al. investigates whether biologically plausible inhibition could allow for better formation of neural assemblies in the framework of assembly calculus and compares it with a previously proposed model. The Authors study time to assembly formation and its success/failure rate, their size and density of connections within an assembly. Finally, the work studies memory retrieval and the overlap of multiple memories, and finds better memory retrieval and better separation of the formed assemblies in the new implementation of the model. This study is an important piece of work as it makes a substantial effort to set the assembly calculus framework in a more biologically plausible context. However, in its current form, the study seems premature. Even though I find the question interesting, the paper lacks merit and rigor in both research and writing style.
+
+Below, I am listing major and minor comments on the paper. I also split the major points into those related to the paper's scientific merit and those related to data presentation and writing. I am sorry if most of them are perceived as grumpy or picky. I hope they will help to improve the work, as I believe the question is interesting; however, it could have been delivered better.
+
+\subsection*{Major scientific points:}
+\begin{itemize}
+    \item \textbf{Comparison between the models:} The study takes an existing model and implements more biologically plausible mechanisms for the assembly formation. Then the Authors compare two models. Just simply by looking at Table 1, such a comparison seems at least unfair. Because the sparsity (connectivity) and stimulus size are different. Since the study reports that the new model is superior in some aspects to the original one, it is hard to trust those results. Could the Authors propose a comparison that would be fair between the two models? Given that the Authors compare those two models in certain aspects, it would be worth comparing them also on the functional level of calculus proposed in the original work, not just formation.
+    
+    \item \textbf{Plasticity types for excitatory and inhibitory populations:} It is not clear which connections undergo plasticity - just excitatory or both excitatory and inhibitory. This should be clearly stated in the methods. If it is just excitatory, could the Authors report the range and distribution of $w_{exc}$ after learning? I understood that all the positive weights are initialized to the value 1. How much does assembly formation depend on the initialization? Are the single excitatory weights larger or smaller than inhibitory ones?
+    
+    \item \textbf{Value of $w_{inh}$:} Table 1 says the value was set to -0.2. At the same time, Fig. 1 shows that more values were tested (from -1 to -0.2), with -0.2 being the most favourable. While the work advocates for inhibition in the model, it seems that the weaker the inhibition, the better the assembly formation. Could the Authors discuss this? Would this hold if the inhibitory weights were heterogeneous, drawn from a distribution?
+    
+    \item \textbf{Sparsity of the network:} The study claims to propose more biological mechanisms; however, the sparsity of the network is kept at 0.5, which is rather high for brain networks, and most of the studies range from 0.01 to 0.1/0.2 sparsity. Given the results from Fig. 4A, it seems that the model would fail to form the assembly in sparser networks. Could the Authors discuss this more and give intuition on what could be a solution to this problem?
+    
+    \item \textbf{Learning rate $\neq$ synaptic plasticity:} parameter $\beta$ is called learning rate in one place (line 114) and then called synaptic plasticity for the rest of the work. I found it confusing. However, I don't see the relevance of the results showing that, with a higher learning rate $\beta$, the network needs fewer iterations to form the assemblies. Could the Authors elaborate on the relevance and impact of this finding? It seems rather straightforward that increasing the learning rate would allow faster formation of the assemblies. If it is not straightforward, it would be useful to discuss the importance of these results.
+    
+    \item \textbf{General confusion with the excitatory-inhibitory connectivity:} I struggle to understand the structure of the network. The Methods do not seem to explain whether recurrent connectivity exists between inhibitory neurons. If it does not, that subtracts from the plausibility of the mechanism and raises another question: would the result survive if both populations had recurrent/feedback connectivity?
+    
+    \item \textbf{Fig. 4AB has no error bars:} Are there any error bars for those plots? Currently, it's a single line for each. It looks unfinished.
+    
+    \item \textbf{E/I ratio in each assembly:} When assemblies are being formed, do they have any specific inhibitory connectivity? Is there any link between the size/participation in the assembly and the amount of inhibition an excitatory neuron receives? I think it would be interesting to investigate a little bit more what exactly drives the size of the assembly in the model.
+    
+    \item \textbf{Choice of inhibitory delay:} The study uses a fixed value for a delay of inhibition, following previous work. Do the results hold for faster or slower inhibition? Do the Authors have intuition for what one would expect in this case?
+\end{itemize}
+
+\subsection*{Major writing and presentation points:}
+\begin{itemize}
+    \item \textbf{General lack of storytelling:} The results section reports the findings in a very dry way, just providing the numbers and their statistical tests. While it is appreciated that the Authors provide all the details, the writing really lacks any motivation for why these numbers are reported, what they mean in the bigger picture, and how they relate to each other. Each results section is really disjointed, and if one shuffled them around, the reader would not notice anything wrong. Could the Authors edit the text in a way that the reader feels guided through the results section? I would suggest adding a bit more motivation in the first sentence of each section for why the given manipulation was done, then report the results, and then summarize it. Another section should have a link to the previous one to help the reader follow what is happening.
+    
+    \item \textbf{``Limitations'' as a results section:} I find it strange to put limitations as a section in the results, as it should be a part of the discussion. Honesty about limitations is really appreciated; however, actual experiments should be reported first as results, with a few comments (as we compare two models here). A bigger discussion on what the limitations are and why there are limitations should be a part of the Discussion section.
+    
+    \item \textbf{No technical description of the previous model:} Since the paper compares two models, it would be good to add a section in the methods on the actual previous/original model that was implemented in the study. It's difficult to go back and forth with previous work to check exactly what the model was, how it was implemented, and how it is implemented in the Authors' work.
+    
+    \item \textbf{``your model'' in the text:} In two places (line 105-106; Fig. 2D caption), the expression ``your model'' shows up. Naturally, this should be corrected. If one writes with automated help, it's usually a good practice to ask a colleague who never saw the paper to read it in detail and catch misspellings or errors like that one.
+\end{itemize}
+
+\subsection*{Minor:}
+\begin{itemize}
+    \item \textbf{``artificial'' assemblies:} Could the Authors discuss why they call the assemblies ``artificial''? I found it strange and rather unusual. What makes them artificial?
+    
+    \item \textbf{``previous'' or ``original'' model:} I think sticking to one or naming it directly would help with clarity.
+    
+    \item \textbf{Fig. 1B two memory areas:} The panel shows two memory areas, but the Methods and Results talk only about each setup having one Stimulus/Sensory area and one Memory area. It does not seem relevant to anything.
+    
+    \item \textbf{Fig. 2 numbers} (especially in the legends) are extremely small.
+\end{itemize}
+
+
+\section*{Reviewer \#5}
+
+\subsection*{Summary}
+The manuscript proposes a modification of the Assembly Calculus (AC) framework of Papadimitriou et al. (2020). In the original AC, the $k$-winners-take-all ($k$-WTA) rule selects a fixed number $k$ of neurons per area at each discrete time step. The authors replace this rule with the E\%-winners-take-all (E\%-WTA) mechanism of de Almeida, Idiart and Lisman (2009), which lets the number of active neurons per cycle vary according to the relative synaptic input each neuron receives, motivated by the dynamics of gamma oscillations. A second modification introduces signed (inhibitory) synapses with probability $p_i = 0.2$ to mimic the cortical excitation–inhibition balance. The authors define three formation criteria (stationary firing pattern, synchronisation, and above-baseline synaptic density) and compare the resulting E\%-WTA model against AC on five metrics: formation iterations, assembly size, synaptic density, retrieval, and inter-assembly overlap.
+
+Four claims are advanced: (i) the E\%-WTA rule is a more biologically plausible selection mechanism than $k$-WTA; (ii) the addition of feedforward inhibitory synapses controls assembly size without requiring a hand-set $k$; (iii) the E\%-WTA model achieves superior retrieval of a formed assembly under reactivation of the original stimulus, with median recovered portion 1.00 across all tested plasticity values versus 0.56–0.97 for AC; and (iv) the E\%-WTA model produces lower inter-assembly overlap (median 2 vs 4 neurons), i.e. better orthogonalisation. The claims are internally consistent but their broader significance is moderate: the contribution is largely an engineering refinement of an existing modelling framework rather than a new biological or methodological insight. The manuscript would be substantially strengthened by an explicit ``Contributions'' list, ideally in the Introduction, that disentangles what is inherited from what is newly proposed. The E\%-WTA mechanism itself is not new — it originates from the senior author's own prior work (ref [23]) — and the random-inhibitory-synapse construction is a standard simplification. The novelty lies in combining these with AC and in the empirical characterization. This is a modest but legitimate contribution if the comparison is made rigorous. As it stands, the originality bar for PLOS Computational Biology — ``significant biological and/or methodological insight'' — is only partially met.
+
+The motivation is sensible and the topic fits the journal's scope: making a high-level assembly model respect basic features of cortical computation (relative-threshold selection, inhibition) is a worthwhile goal. However, in its current form the comparison between models is not interpretable due to simultaneous changes in several parameters; the analyses are subject to selection bias (only ``successful'' runs are analyzed), and the key parameter of the proposed mechanism ($\epsilon$) is never varied. The paper also motivates the work with power-law firing statistics but never analyzes such statistics. Several required experiments (ablations, partial-cue retrieval, sensitivity analyses) would be inexpensive to perform and could substantially change the conclusions.
+
+\subsection*{Major comments}
+
+\noindent\textbf{Comment 1. Confounded comparison and missing parameter-space mapping.}\\
+The E\%-WTA model differs from the AC baseline in the selection rule, the presence of inhibitory synapses, $p_s$ (0.5 vs. 0.1), and the formation criteria; every comparative claim is therefore uninterpretable. To support the paper's claims, the authors must perform a factorial ablation, at minimum:
+\begin{itemize}
+    \item $k$-WTA (excitation-only) with $p_s = 0.5$;
+    \item E\%-WTA (excitation-only) with $p_s = 0.5$ — the ``without feedforward inhibition'' variant exists in Table 2 but is analyzed only for assembly \emph{size}; it must also be analyzed for retrieval, formation time, and overlap;
+    \item E\%-WTA with $p_s = 0.1$ (Fig. 4a suggests this fails; if so, this is an important result that should be a headline finding, not a footnote);
+    \item ideally, a sweep of $p_s$ for both models, and $p_s \cdot p_i$ for your model.
+\end{itemize}
+It is not clear what ``original model'' refers to, as in [16-18] - other parameters $n, k, p$ are used, and it is not clear if used parameters are optimal for original model. In [16], fig2 F2, \% assembly recovered is also very high - near 95\%. So the headline claim of ``superior recovery'' may be measured against a straw-man baseline. Please justify or correct the AC parameters.
+
+In addition, the claim that $\omega_{inh} = -0.2$ and $\beta \le 0.01$ are ``optimal'' is made without a stated criterion, while the text simultaneously reports that failures decrease with decreasing plasticity and inhibition — the logical endpoints ($\beta \rightarrow 0$: no formation; $\omega_{inh} \rightarrow 0$: uncontrolled size, cf. Table 2) are never discussed. Please provide a joint ($\beta$, $\omega_{inh}$) phase diagram of failure rate, assembly size, and retrieval, define the optimality criterion, and enumerate the swept values in Fig. 2d (including the direction of the $\omega_{inh}$ effect, which is currently ambiguous).\\
+
+\noindent\textbf{Comment 2. Biological plausibility of connectivity parameters.}\\
+Local pyramidal–pyramidal connection probabilities measured in cortex are typically $\sim0.01\text{--}0.1$, whereas $p_s = 0.5$ is used here. Since the stated purpose of the paper is to bring the model closer to cortical networks, and Fig. 4a shows the model fails at lower $p_s$, the authors must either demonstrate assembly formation at sparse, experimentally anchored parameters (possibly requiring larger $n$ and rescaled parameters, per the scaling relations in the AC literature) or explicitly discuss why dense connectivity is required at $n = 10^3$ — which would itself undercut the biological-plausibility motivation.\\
+
+\noindent\textbf{Comment 3. Post-formation drift.}\\
+Fig. 2b shows that the firing set continues to drift after the $|N_-| = 0$ criterion is met. The manuscript never discusses is the assembly destroyed, partially recoverable, or drifting within a bounded superset? Please quantify post-formation drift in both models and apply a consistent standard: either adopt and justify a tolerance-based formation criterion for both models, or demonstrate that drift is destructive and measure it as a failure mode.\\
+
+\noindent\textbf{Comment 4. Formation criteria, failure definition, and selection bias.}\\
+In addition, the minimum size $|A|_{min} = 6$ is arbitrary, and justified in the text only as avoiding groups of ``one'' (Methods) or ``one or two'' (Discussion) neurons. Either show that the size distribution is bimodal and place the threshold in the gap, or provide a sensitivity analysis over $|A|_{min}$.\\
+
+\noindent \textbf{Comment 5. Plasticity of inhibitory synapses and unbounded weights.}\\
+Eq. 3 is applied to all synapses, so co-activation makes inhibitory synapses more negative. Activity-dependent potentiation of inhibitory synapses has some experimental support, but the canonical modeling treatment uses distinct, typically homeostatic, rules for inhibition (Vogels et al. 2011); the authors should justify applying a single multiplicative Hebbian rule to both signs. More consequentially: (i) unlike the original AC, which bounds synaptic weights, Eq. 3 allows unbounded multiplicative growth — if this deviation is intentional, justify it and analyze convergence; (ii) strengthening mutual inhibition between co-active neurons is self-suppressing and may destabilize stored assemblies — plausibly contributing to the destruction seen in Fig. 4c. Please report sign-specific weight statistics (mean excitatory/inhibitory weights within vs. between assemblies) and consider a weight cap.\\
+
+\noindent \textbf{Comment 6. The synaptic-density criterion.}\\
+Because connectivity is fixed at initialization, the manuscript must explain \emph{why} emergent assemblies exceed baseline density at all: the selection dynamics preferentially recruit neurons with high in-degree from the active set, i.e., a densest-$k$-subgraph effect (Legenstein et al. 2018, which the authors cite but never connect to this criterion). Moreover: (i) the criterion counts synapse \emph{existence}, including inhibitory synapses, whereas the quantity Hebbian learning modifies is synaptic \emph{strength} — a weight-based density (e.g., mean within-assembly excitatory weight vs. area baseline) is the more direct realization of Hebb's postulate and should be reported alongside; (ii) counting strengthened mutual inhibition toward ``synaptic density'' is inconsistent with the assembly concept.\\
+
+\noindent \textbf{Comment 7. Retrieval: the present test is close to trivial; partial cues are required.}\\
+Re-presenting the identical, complete stimulus in a deterministic network recreates the same input drive regardless of learning. A necessary control is to present the same stimulus to the untrained (initial-weight) network and measure overlap with the eventual assembly — this isolates the contribution of learning. In addition: test persistence of activity after stimulus withdrawal (the attractor test), and test pattern completion from partial cues (a fraction of the original stimulus, or direct activation of a fraction of assembly neurons). Deferring pattern completion to future work is not acceptable for a memory model: if the E\%-WTA model cannot complete partial cues, that is a central result that must be reported. Please also specify retrieval initial conditions, whether plasticity is active during retrieval, iteration counts, and membership criteria.\\
+
+\noindent\textbf{Comment 8. Storage capacity and catastrophic forgetting.}\\
+For a memory model, capacity is a primary functional quantity, yet only single-assembly storage is analyzed, and Fig. 4c is qualitative. Please provide a capacity curve (retrieval quality vs. number of stored assemblies per area, for both models), analyze the failure mode (weight competition vs. strengthened inhibition, connecting to Major Comment 5), and relate the results to AC's published capacity behavior. Given that the authors themselves identify catastrophic forgetting as crucial, this cannot be deferred.\\
+
+\noindent\textbf{Comment 9. Overlap must be normalized.}\\
+Raw $|A_i \cap A_j|$ confounds assembly size (AC: $k = 37$; E\%-WTA: $\sim23\text{--}26$). Using the paper's own medians and chance overlap $|A_i||A_j|/n$: AC $\approx 2.9\times$ chance (4 vs. $\sim1.4$); E\%-WTA $\approx 3.5\times$ chance (2 vs. $\sim0.58$). Relative to chance, the E\%-WTA assemblies overlap \emph{more}, not less, whereas the absolute Jaccard index slightly favors E\%-WTA ($\approx0.057$ vs. $\approx0.043$). The stated conclusion — ``better orthogonalization'' — may therefore depend on the choice of metric. Please report a symmetric normalized statistic (Jaccard index, or overlap normalized by chance expectation and by stimulus overlap) and revisit the claim.\\
+
+\noindent\textbf{Comment 10. The claimed virtues are relative to an unstated objective.}\\
+The paper presents size control and orthogonalization as unqualified goods, but whether they are desirable depends on the capacity–interference trade-off, which is never analyzed. Classical results in associative memory show capacity-optimal codes are sparse but not minimal; taken to its logical extreme, an orthogonality-only criterion favors $|A| = 1$, exposing the incompleteness of the criterion. Relatedly, in this noise-free, full-cue setting there is no demonstrated \emph{reason} for assemblies over single stable neurons: the standard justifications (redundancy, noise robustness, completion) are exactly the untested experiments. Please define the functional objective, add noise-robustness tests, and expand the Discussion accordingly. The Introduction's power-law motivation also remains untested — either analyze the model's firing statistics and size distributions or revise the motivation.\\
+
+\noindent \textbf{Comment 11. Inhibition architecture, terminology, and the unfulfilled "ratio" claim.}\\
+The implemented mechanism — a fixed probability $p_i$ that any synapse is inhibitory — is (i) not feedforward inhibition in the usual sense, and the Methods do not even specify whether $p_i$ applies to $S \rightarrow M$, $M \rightarrow M$, or both; and (ii) not the gamma-cycle mechanism the paper invokes, in which the winner triggers \emph{divergent feedback inhibition from interneurons} densely innervating the local population. Notably, in the present abstraction the competition itself is implemented entirely by the relative-threshold selection rule — the random inhibitory synapses serve only size control. Please either implement an explicit inhibitory population (or a shared inhibition variable) matching the invoked mechanism and compare, or rename the mechanism and re-scope the biological claims. $p_i$ is never varied despite the ``ratio'' motivation; a $p_i$ sweep and an effective E/I balance measure are required.
+
+\subsection*{Minor comments}
+\begin{enumerate}
+    \item Typos and grammar: ``In your model, the firing state is determined\dots'' (Methods, Neuronal Dynamic — should be ``our''); ``Matemathically''; ``that no satisfy the third condition'' (Limitations); ``the stimulus from S cause $|F_1|$ neurons'' (``causes''); ``an feedforward inhibition method'' (``a''); ``this fact won't imply'' (``does not imply''); ``the neurons that fire won't always be those belonging\dots'' (colloquial).
+    \item Clarify plasticity scope: state explicitly whether Eq. 3 applies to $S \rightarrow M$ synapses as well as $M \rightarrow M$ connections, and whether learning is active during retrieval.
+    \item Fig. 2d: enumerate the $\omega_{inh}$ and $\beta$ values swept. The text says failures decrease with ``decrease in \dots feedforward inhibition values'' yet concludes $\omega_{inh} = -0.2$ is optimal — clarify whether more negative $\omega_{inh}$ (stronger inhibition) was better, and over what range.
+    \item Table 1: the asterisk on $\omega_{inh}^*$ is unexplained; add $\epsilon$, $|A|_{min}$, number of simulations per condition, and the maximum iterations allowed before a run is declared a failure.
+    \item Table 2: define the percentages more precisely (fraction of 500 runs meeting all formation criteria); the superscript letters attached to identical medians (1.00 vs. 1.00) are uninterpretable and should be removed or explained.
+    \item Fig. 3b: state which $k$ was used for each model and the number of retrieval iterations.
+    \item Fig. 4a,b: break down failure modes (density failure vs. size failure) rather than reporting only the aggregate success rate.
+    \item Assembly-size distributions: given the ``endogenous size'' claim, show full distributions (possibly on log axes) rather than only medians/IQRs; this also connects to the power-law question (Major Comment 9).
+    \item Discussion wording: ``the formation process in the original model was slightly slower than in the E\%-WTA model'' contradicts your own $\beta = 0.001$ result (64 vs. 19 iterations); rephrase to ``faster for all tested $\beta$ except the lowest.''
+    \item Replace ``avoiding groups consisting of only one or two neurons'' with a statement consistent with $|A|_{min} = 6$, or justify the threshold.
+    \item Broken/placeholder citations: Ref [27] duplicates ref [18] (Legenstein et al., ITCS 2018) with typos (``Papapdimitriou,'' ``Vem-pala'') — remove the duplicate. Ref [15] (a Neuron Q\&A with Richard Axel) is an odd support for the claim that a theoretical framework linking activity to cognition is lacking; a more substantive reference would serve better.
+\end{enumerate}
+
+\subsection*{Assessment Against Journal Criteria}
+\noindent\textbf{Originality/Innovation:} Moderate. The components are established (E\%-WTA from the authors' own 2009 work; AC from Papadimitriou et al.); the combination and empirical characterization are new.\\
+
+\noindent\textbf{Importance to the field:} Currently limited; would increase substantially if the ablations (Major Comment 1) demonstrate that the mechanism, not the connectivity change, drives the improvements.\\
+
+\noindent\textbf{Biological/methodological insight:} Aspirational at present — no comparison to neural data or analysis of firing statistics; the biological-plausibility argument is weakened by the dense-connectivity requirement and the per-synapse interpretation of the E/I ratio.\\
+
+\noindent \textbf{Rigor of methodology and evidence for conclusions:} Insufficient as submitted, primarily due to the confounded comparison, the mis-parameterized baseline, selection bias, and the absence of $\epsilon$ sensitivity and partial-cue/persistence tests. The required additional experiments are computationally inexpensive relative to their value;\\
+
+\noindent \textbf{Reproducibility:} Methods are mostly described, but key procedural details (failure criteria, retrieval protocol, iteration caps) and the actual code link are missing.\\
+
+\noindent \textbf{Writing/organization:} The manuscript is well organized and accessible, but requires a thorough language edit and correction of the citation problems noted above.
+
+\subsection*{Recommendation}
+Major revision. The idea is worthwhile and the paper is clearly written at the structural level, but the central comparative claims are not currently supported by adequately controlled experiments. I believe the required work (factorial ablations across selection rule $\times$ $p_s$ $\times$ inhibition; $\epsilon$ sensitivity; stimulus-off persistence and partial-cue retrieval; normalized overlap; corrected statistics; ...) is feasible within a revision cycle. If the ablations show that the E\%-WTA mechanism itself — rather than the increased connection probability — accounts for the reported advantages, this could become a solid contribution to the Assembly Calculus literature. If, as the current confounds suggest, the advantages largely derive from the connectivity change, the claims would need to be substantially scaled back, and the manuscript in that form would fall below the bar for this journal.
+
+
+\section*{Reviewer \#6}
+
+In this manuscript, authors aimed to improve biological plausibility of the framework of assembly calculus, specifically focusing on inhibitory circuits. Authors extended simplified k-WTA in the original model to E\%-WTA model which represents the winner-take-all effect generated by inhibitory feedback in each cycle of gamma oscillation. Furthermore, additional feedforward inhibition was implemented by setting negative values in a certain number of synaptic weights. They searched parameter settings in which the extended model appropriately works, and they found that the extended model exhibited better recovery and orthogonalization of assemblies than the original model.
+
+I agree that this research tackled an important problem, and the manuscript was easy to follow. However, I felt that the design of the model and the presented results were not adequate to address the problem. Below is a list of my concerns.
+
+\begin{itemize}
+    \item \textbf{Significance of the study:} It was unclear to me what was the essential advance achieved by the extension of the model. Although authors introduced biological phenomena such as power law and gamma oscillation in Abstract and Introduction, there was no result that reproduced experimental data in the manuscript. Although authors showed changes of recovery rates and orthogonalization of assemblies, how they are relevant to biological observation and how they affect the performance of the calculus were not shown. Furthermore, authors did not test whether the proposed model can perform operations defined in the original model, and it is stated that performing operations may be difficult (in ``Limitations'', page 16). Authors should clearly demonstrate that the proposed extension improves the fit of the model to biological data while keeping the performance of assembly calculus.
+    
+    \item \textbf{Biological plausibility of inhibitory circuits:} The main objective of this work is implementation of biologically plausible inhibition in the framework of assembly calculus. E\%-WTA seems a biologically plausible model. However, the design of feedforward inhibition does not seem biologically plausible because it does not satisfy the Dale's law. Furthermore, the ratio of excitation and inhibition in ref. 39 (cited on page 9, L 192) is the ratio of neurons, not synapses. I think that the separation of excitatory and inhibitory neurons is desirable in building a biologically plausible neural circuit model unless there is a specific reason. Also, it is unclear which of E\%-WTA and feedforward inhibition is important for the model performance. The contribution of E\%-WTA and feedforward inhibition should be separately analyzed.
+    
+    \item \textbf{Inhibitory synaptic plasticity:} Although it is not explicitly described in the manuscript, I suppose the multiplicative Hebbian-like plasticity rule in Eq. (3) was applied to all synapses including inhibitory ones ($\omega < 0$). Then, inhibitory synapses implicitly perform anti-Hebbian learning. Although such plasticity possibly exists in the brain, I am afraid that the simple anti-Hebbian plasticity interrupts the emergence of neural assemblies and functions of assembly calculus, and it is unclear whether such plasticity actually keeps excitation-inhibition balance in the neural circuit. For reference, previous modeling studies have developed inhibitory plasticity rules for excitation-inhibition balance (e.g. Vogels et al., Science, 2011; Hennequin et al., Annu. Rev. Neurosci., 2017).
+    
+    \item \textbf{Synaptic normalization:} Regarding excitatory synapses, plasticity rule in Eq. (3) results in an exponential increase in synaptic weights, and weights diverge to infinity. The original AC model performed renormalization of synaptic weights to prevent divergence. It was unclear whether such synaptic normalization was performed in this study and how it was implemented under the existence of negative weights. If positive and negative weights are mixed, weights can become infinitely large keeping the sum of weights constant.
+    
+    \item \textbf{Initialization:} In the initialization of the model, all excitatory and inhibitory synaptic weights were set to the same values. I wondered whether the model works with weight initialization with random values because synaptic weights are not uniform in the real brain.
+\end{itemize}
+
+\subsection*{Minor points}
+
+\begin{itemize}
+    \item I found a few typos:
+    \begin{itemize}
+        \item Page 4, L105: ``your model''
+        \item Page 4, L106: ``matemathically''
+        \item Page 12, L257: ``an feedforward inhibition''
+        \item Page 16, L315: ``that no satisfy''
+    \end{itemize}
+    
+    \item In the Results section, authors used expressions like ``synaptic plasticity value'' and ``synaptic plasticity level'' to represent the parameter for the learning speed ($\beta$) probably. Such expressions are ambiguous and misleading because synaptic plasticity rules often have multiple parameters. Authors should use expressions such as ``learning rate'', ``learning speed'', or simply ``$\beta$''.
+\end{itemize}
+
+\section*{Reviewer \#7 (PCOMPBIOL-D-26-00886\_review):}
+
+The paper builds on the Assembly Calculus (AC) model, introducing more realistic elements, making it more biologically plausible. In the original AC model, the $k$-winners-take-all ($k$-WTA) algorithm was used as a form of inhibition to control the size of formed neuronal assemblies. Here, the authors first replace the $k$-WTA algorithm with the more biologically grounded E\%-winner-take-all, inspired by gamma frequency oscillation dynamics, and additionally introduce inhibitory synapses. The motivation behind this work is reasonable, and the results suggest potential improvement in certain qualities of the formed assemblies (e.g. size and density) and model performance, especially in memory recall (assembly reactivation) compared to the original AC model, with potential importance to researchers in the field. However, in its current state, the manuscript has significant presentation issues, the biological insights are barely addressed, and several claims are questionable given the experiments provided. Clearer presentation of the methodology and further experiments are required to properly evaluate the validity of the claims.
+
+\subsection*{Major concerns:}
+
+The introduction is superfluous, and the language is not very concise. A lot of the information presented here is irrelevant to the work being done, while relevant information is missing. The same can be said for the treatment of the model and its features. Some topics that should be introduced here are, for example, ``biological inhibition'', which is the novel element of this work. Also, the motivation and rationale behind why more than one type of inhibition is introduced (or required) is also absent.
+
+The methods are not entirely clear. There are a lot of interconnected pieces, and a lot of back and forth is required in order to understand everything. Better presentation is therefore necessary. A lot of information is placed when it is not needed and repeated later, complicating comprehension. There is no clear distinction between what belongs to the original model and what is new, and much of this had to be derived implicitly. It would be better if the proposed model is presented first and, at the end of each sub-section, the differences with AC, where they exist. If the differences are only in parameter values, those should be given in Table 1 only. Most importantly, some information is missing. For example, details on how structural plasticity is implemented, which synapses are plastic and which exhibit structural plasticity, which process decides which newly formed synapses become excitatory or inhibitory, and what the recovery protocol is.
+
+For most of the experiments in the results section, a clear motivation and rationale are missing. The authors evaluate the model on criteria like the number of iterations required for assembly formation, the size and synaptic density of the formed assemblies, and compare these to the original AC model. However, it is unclear what this comparison aimed to achieve, and some of the authors' claims are not properly or clearly backed up by the results. More generally, many of the results show differences between the proposed model and the original AC model, but these differences do not always reveal whether and why the proposed model is better.
+
+Importantly, the authors use the E\%-WTA algorithm as an alternative to $k$-WTA, but this introduces a novel problem (large assembly sizes) not present in the original AC model. To compensate for this, ``feedforward inhibition'' is added as an additional inhibitory mechanism. Yet, the contribution of this mechanism seems already quite significant by itself, since it can reduce the number of active neurons considerably. In fact, it seems to be one of the most impactful changes they introduced (see Figure 3a + Table 2). However, the authors do not evaluate whether feedforward inhibition alone can achieve similar control without the E\%-WTA algorithm. Specifically, I cannot see why the conditions the authors established for the formation of assemblies should not work in the absence of the E\%-WTA algorithm, using feedforward inhibition alone.
+
+As a result of the above, the impact of the current version is questionable. It would be useful to know the maximum capacity of formed assemblies in the proposed model and how that number compares to the original AC model. How does the number of formed assemblies affect the recall process relative to the AC? These are partly addressed in ``Limitations'' (Figure 4), however, there is no comparison with the original AC model, making it hard to evaluate whether the introduced changes are beneficial. Incorporating this analysis into the main results would strengthen the contribution of the work.
+
+Lastly, the discussion does not fully address the implications of the results. For example, the differences between the two models (in assembly size, synaptic density, etc) are not discussed in relation to biology, and their implications are left largely unaddressed.
+
+\subsection*{Specific comments:}
+
+\begin{itemize}
+    \item (Lines 41-44) This sentence introduces sequential activation of assemblies as a means of information propagation. However, the paper doesn't address sequential propagation at all.
+    
+    \item (Lines 56-60) This is a very broad sentence. ``considerable advances in the field of neuroscience'' is very vague. ``our comprehensive understanding of neuronal function at the cellular and molecular level'' is an overly optimistic statement (that is also not supported by any references here).
+    
+    \item The description of the AC model (lines 61-68) here is too detailed and should be moved into the results or methods (wherever the authors decide to describe the two models) in detail. The important content here is what the AC was proposed to address, and that it uses assemblies formed through Hebbian learning as the functional unit.
+    
+    \item (Lines 68-70) This is useful information. However, the last sentence is left without a brief explanation of what these ``functional properties are'', so the relevance to this work is not clear.
+    
+    \item (Lines 83-87) The E\%-WTA algorithm is mentioned as a more realistic mechanism for inhibition. However, the motivation and background are barely explained. It might be helpful to support the selection of E\%-WTA by explaining why it would address the problems of $k$-WTA (previous paragraph).
+    
+    \item (Lines 89-92) The rationale for selecting these properties to evaluate the model is unspecified. Also, the practical meaning and impact of these properties and why they matter are never stated.
+    
+    \item (Lines 97-98) Half of this sentence talks about synapse formation, and the other half about neuronal projections. Please keep sentences compact.
+    
+    \item (Lines 116-123) This information should be moved to the introduction to motivate the E\%-WTA algorithm.
+    
+    \item Equation 4. If I understand correctly, the value of $E$ is a time-dependent value and is specific for each neuron. Then $E_j(t)$ would be more appropriate.
+    
+    \item (Line 132) What is the algorithm's sensitivity to the parameters $\tau_m$ and $d$?
+    
+    \item (Lines 143-148) Again, much of this information should be moved to the introduction for motivation. The E-I balance can be explained at multiple levels. ``Balance between excitatory and inhibitory stimuli'' is an ill-defined term.
+    
+    \item (Lines 160-175) The authors use lines 160-162 to justify the introduction of three conditions. However, the first two conditions they introduce already solve the problem of lines 160-162. So the incorporation of the third condition seems unjustified. Moreover, the current formulation addresses only the difference of one consecutive timepoint ($t$ and $t-1$). In Figure 2b, however, they compare this to multiple timepoints in the future and for each consecutive timepoint the number and identity of neurons keep changing. How do these three conditions account for this? What is the motivation for the ``higher synaptic density'' condition?
+    
+    \item (Lines 203-209) This information is unnecessary here since it is presented in detail in the results.
+    
+    \item Figure 1f, and particularly the right plot, is not informative. I cannot understand what information it conveys.
+    
+    \item Please keep parameter values summarised in Table 1 and avoid using them in the text unless needed (e.g. lines 193-194).
+    
+    \item In Table 1, $w_{inh}$ has an asterisk that is not addressed anywhere.
+    
+    \item (Lines 225-226) If the density condition is by definition a requirement for an assembly to form, then how can there be formed assemblies that do not fulfil this requirement? Please clarify.
+    
+    \item (Lines 232-233) Why was the number of neurons for the minimum size of an assembly set to 6? This seems like an arbitrary choice. What was the rationale behind it?
+    
+    \item (Lines 233-237) How many simulations were run in total? For which parameter values specifically? Figure 2 shows 5 values for $w_{inh}$ and 5 for $\beta$. Then in the caption it says 100 for each parameter value. Does that mean that $5 \cdot 5 \cdot 100 = 2500$ simulations in total? Why do some of these lead to large failures? What was the reason for the failure? Was it due to random initialisation and random selection of the input neurons?
+    
+    \item (Lines 239-283) It is not clear why synaptic density is a good measure for comparison. Which density is a ``good density'' and why? Is higher density always better? Why? Please clarify.
+    
+    \item (Line 241) Here, the parameter $\beta$ is referred to as ``synaptic plasticity''. However, in the methods it is introduced as ``learning rate'', which is more accurate. Please be concise.
+    
+    \item (Lines 249-251) This seems like a negative result since $k$-WTA achieves formation with fewer iterations. Although this is not exactly a fair comparison since the conditions are different, it still seems negative. What are the implications of this, especially considering that previously you showed that a lower $\beta$ is better for assembly formation?
+    
+    \item (Lines 251-253) The formation was slightly slower, but the E\%-WTA requires more iterations. I cannot see how this claim here can hold based on these contradictory results. Please clarify.
+    
+    \item (Line 254) The E\%-WTA abbreviation was already introduced before. Please just use the abbreviation.
+    
+    \item (Line 260) The symbol ``A'' was already introduced as a ``brain area'' in the methods and re-used here for ``neural assembly''. This creates ambiguity.
+    
+    \item (Lines 285-298) Arguably the strongest result. I would emphasise this more in the introduction and abstract. Although how this is measured should be clearer. How is recovery defined? Does it require the ``formed assembly'' to be activated upon stimulus presentation? Does the assembly need to be recovered when activated, only by itself? What if other neurons are effectively activated in addition to those that belong to the assembly? Please provide more information.
+    
+    \item (Lines 299-309) This seems like rather an unfair comparison. The $k$WTA has fixed-size assemblies, and the feedforward inhibition was already optimised to keep the number of neurons in assemblies in E\%-WTA lower than that. Shouldn't this by default produce smaller overlap? For the discussion: What are the implications of this reduced overlap?
+    
+    \item (Lines 310-319 and Figure 4) In this section, some useful insights are given as to why the model fails under certain conditions. The manuscript would become considerably stronger if the authors expanded more on these and made them part of the results.
+    
+    \item Line 311. The authors mention that the proposed model ``outperforms'' the existing one. However, such a claim is not evident from the previous results. Differences between the two models exist, but why these differences seem to show that the proposed model is better is unclear.
+    
+    \item Figure 3b. The legend has blue colour for the E\%-WTA model. However, only the outliers are visible. Please consider using coloured outliers in the plots.
+    
+    \item Table 2. This table, although the most informative piece in the paper, is quite hard to understand fully. Please consider presenting the results in the figures (at least the most significant ones) and leaving the details/summary for the Table. It is unclear to me what exactly each superscript letter (a, b, c\dots) refers to specifically. Please clarify.
+    
+    \item ``neuronal group'' and ``neuronal assembly'' have been used interchangeably throughout the text, creating confusion. Please use only one term.
+    
+    \item Please check thoroughly for grammatical mistakes (e.g. ``sucess'' in Figure 4, ``dynamic'' in Line 101, ``your'' in Line 105)
+    
+    \item The titles of each section are not really informative. They should summarise the main result of each section. Also, each section on the results should start with some rationale for what this section addresses.
+    
+    \item Please check the references thoroughly and make sure they are correct. For example, reference [25] reads: ``Anonymous. Statistical mechanics for networks of real neurons. Rev Mod Phys. 2025 Apr.''
+    
+    \item In all figures, the labels, legends, tick labels, and more or less all text are too small to read
+\end{itemize}
+
+\section*{Reviewer \#8:}
+
+In this manuscript, the authors advance the existing Assembly Calculus (AC) formal system with a novel selection method termed E\%-winners-take-all (E\%-WTA) and the inclusion of inhibitory weights. Their main claims about their model are:
+
+\begin{itemize}
+    \item The E\%-WTA method of selecting only those neurons that receive excitation close to the maximally excited neuron is more biologically plausible than the original AC model formulation, which assumes a fixed number of active neurons.
+    \item Inhibition in this model allows for control of assembly size.
+    \item The E\%-WTA method enables better pattern completion than in the original AC model formulation.
+    \item The assemblies learned with E\%-WTA are better orthogonalized than in the original AC model.
+\end{itemize}
+
+The model developments are of interest to computational neuroscientists, and the methods are presented clearly and compellingly. However, I have some concerns about the scope and interpretations of this study that I would like addressed before I would consider it ready for publication. My main comment is that I would like to see the results framed and interpreted with much more depth, and with clearer connections back to the original spirit of the original introduction of the AC.
+
+\subsection*{Major comments}
+
+\begin{enumerate}
+    \item \textbf{Motivation and interpretation of results}\\
+    The authors emphasize biological plausibility as their motivation for their developments to the AC, with particular focus on gamma oscillations. Their main claim about the advancement of biological plausibility is with regards to the number of neurons that are allowed to activate in a given time window; where previously this was a fixed number, it is now allowed to vary depending on which neurons are highly active. While this is a valid and reasonable adjustment to make, I would like to see more consideration about the effects of this modeling choice. What are the functional or computational benefits to the newly introduced mechanisms, or to their effects on the formed assemblies? How do the mechanisms produce these effects? These questions are partially, but not fully, answered. Below I list more specific concerns I have regarding biological interpretations of the results.
+    
+    \begin{itemize}
+        \item \textbf{Assembly size} -- The authors show that inhibition is beneficial for supporting a constant assembly size across a range of plasticity rates (Fig. 3(a)) but give little commentary on why this is functionally beneficial. It would be worthwhile to place this observation in the context of homeostasis of neural activity, and better flesh out why this is a useful feature. In a somewhat opposing view to the lens of homeostasis, the introduction mentions that one particular biological motivator for the use of E\%-WTA rather than $k$-WTA is the power-law distribution of neural activity. This motivation suggests that assemblies should instead have a variable size. This contradiction should be cleared up, and the authors should discuss the computational implications of homo- or heterogeneous assembly sizes.
+        
+        \item \textbf{Assembly recovery} -- It is a very interesting result that almost all E\%-WTA models show perfect recovery of learned assemblies, where AC models do not have this feature. I am curious as to the underlying reason behind this recovery and why it is not present in the AC models. What feature of the E\%-WTA enables this?
+        
+        \item \textbf{Orthogonalization} -- It is worth noting that while orthogonalization of distinct memories is crucial for their recall, there can be reasons for memories to be non-orthogonalized, such as for generalization. It would again be valuable if the authors discussed the computational implications of varying degrees of orthogonalization, and interpretations for the origins of this differing performance between the two models.
+        
+        \item \textbf{General commentary on assembly-based computations} -- The three points above also interact with each other: How large an assembly is influences how well it can be recovered by restimulation, as well as how many orthogonal assemblies can exist in a population of fixed size. An overarching view of these facets of computation is missing in the discussion.
+        
+        \item \textbf{Balance of the results section} -- There is perhaps more space than necessary devoted to the first section of the results, which addresses the conditions under which assemblies form. This is of course an important aspect for reproducibility and relevant for parameter selection, but some of these details may be better relegated to supplementals. The remainder of the results have greater scientific interpretations and are likely of more interest to the general scientific audience.
+    \end{itemize}
+
+    \item \textbf{Assembly operations}\\
+    The authors focus very little on implementation and discussion of the operations from the original AC paper. However, limiting the scope in this way makes the paper feel somewhat incomplete. This point is related to the first major comment, in that some of the assembly operations from the AC are implicit in the results of the current paper but the authors do not discuss the implications as such. Considering that the aim of the AC is to advance a formalism to understand how assemblies interact to perform computations, it is hard to evaluate any advancements to the AC without consideration of this fundamental purpose.
+
+    \item \textbf{Methods: Assembly overlap as a measure of orthogonalization}\\
+    A major methodological concern I have is the use of assembly overlap size as a measure of how orthogonal they are. Since the assemblies in E\%-WTA are of variable sizes, I believe this measure should be normalized by assembly size to be interpretable as a measure of orthogonalization. If fewer neurons tend to be activated in the E\%-WTA assemblies, as seems to be the case from the results, they would be biased toward having fewer overlapping neurons. Normalization would make this measure akin to cosine similarity.
+\end{enumerate}
+
+\subsection*{Minor comments}
+
+\begin{itemize}
+    \item \textbf{Figures:} Overall, the design of the figures could be revisited to make them more readily interpretable.
+    \begin{itemize}
+        \item The font in the figures is too small and is challenging to read when the paper is printed out at 100\% size.
+        \item Some graphical elements are hard to see (e.g., weak connections in Fig. 1(d), red lines in Fig. 2(b)).
+        \item The red and green neurons in Fig. 2(a) may be hard to distinguish for color-blind readers.
+        \item The same shades of red and blue are used throughout to mean different things, which can lead to misinterpretation of figures. In particular, in Fig. 3(a), they indicate the E\%-WTA model with and without inhibition, but in Fig. 3(b) and (d), they indicate the E\%-WTA and AC models. It would be much easier visually if the E\%-WTA with/without inhibition were two different shades of the same color, and the with-inhibition shade were repeated in (b) and (d), alongside a new color for the AC model.
+        \item It is not immediately clear that Fig. 3(a) is essentially the same plot with a different y-scale. This could be indicated more clearly, for example with two lines mapping one the first y-axis to the second.
+        \item In Fig. 2, neural assembly formation rate is shown as a failure rate, whereas in Fig. 4 it is shown as a success rate. This should be made consistent. (NB, there is also a spelling error in `success' in Fig. 4). In Fig. 4, it would also be helpful for the success/failure rates to be shown with the same scale in the two plots.
+        \item In Fig. 4(c), it would make sense to show example overlap matrices for the same stimulus conditions (i.e., same stimulus overlap matrix).
+    \end{itemize}
+    \item p. 4, line 105: `your' should be `our'
+    \item p. 6, line 139: There is a risk of the footnote looking like an exponent. Consider including the information directly in the text.
+    \item p. 8, line 183: `receive' should be `receives'
+    \item p. 9, line 211: `the Table 1' should be `Table 1'
+    \item In the results, it is not necessary to present all medians and IQRs within the text. These are more easily interpretable as figures or in tables, and the text may summarize the main findings and comparisons in reference to these.
+\end{itemize}
+
+
+Snippet de código
+\section*{Reviewer \#9}
+
+In this paper the authors modify the previously published Assembly Calculus model from Papadimitriou et al. and ask whether adding more biologically realistic recruitment dynamics produces a more biologically realistic model output. They adapt the model in two ways. First, they replace the $K$-WTA selection mechanism with an E\%-WTA mechanism inspired by gamma oscillation dynamics. Second, they include an additional and more explicit inhibition mechanism that is constrained by probabilistic E:I balance features, through inhibitory synapse connection probabilities and weights.
+
+The authors also use an alternative definition of assembly formation, arguing that the original criterion, under which an assembly is formed once no new neurons are recruited, does not guarantee that the same neurons continue to fire. Their definition instead requires three conditions detailing that the same set of neurons must fire consistently across iterations, and the assembly must have a higher synaptic density than the surrounding area. The authors conclude that their adjustments improve the model's realism by removing the constraint on assembly size, which now emerges from network dynamics rather than being set by $k$. They further conclude that the adjustments make assembly formation faster, make the model more robust to learning rate, and enrich its capabilities by improving assembly retrieval and orthogonalisation.
+
+I have some general comments, which I outline below:
+
+\begin{enumerate}
+    \item the biological realism of the model is not evaluated or discussed. As I read it the research question for this paper has two parts, the second relating to, in the authors words ``bring the model dynamics closer to that observed in real cortical networks''. This motivation is a valuable one and is touched upon by adjusting the assembly formation function but the authors do not discuss whether this has improved the realism of the model output. Comparing to in-vivo microcircuit dynamics, perhaps calcium imaging studies, would have been valuable here, to comment on the additional biological insight this model provides. Relatedly, the problem statement (lines 58--59) says the field lacks ``a theoretical framework or formal logic capable of consistently associating observed patterns of neural activity with the emergence of cognitive functions''. This motivates models of this kind generally, but the authors do not discuss how their model advances understanding of this issue beyond the AC model.
+    
+    \item The AC vs E\%-WTA model comparison is confounded by different definitions of an assembly, and the authors do not make clear at which stage which definitions are being used. Only figure 2b compares the definitions within the AC model, and shows that they differ substantially in how and when they confirm assembly formation. Following this the authors appear (although it is not stated explicitly) to use each models definition in each new comparison. It is therefore not possible to determine if the model adaptations have improved performance factors, or if the definition change is the cause of the differences. Additional controls using alternative assembly definitions would help establish that the adaptations cause the improvement.
+    
+    \item Parameter choices are not sufficiently reasoned.
+    \begin{itemize}
+        \item The increase of $p_s$ from 0.1 to 0.5 should be clearly stated as model-derived. Biologically plausible values for pyramidal-to-pyramidal connectivity are closer to 0.1 (Markram et al., 1997; Song et al., 2005; approximately 0.08--0.09 for L2/3--L5 pairs), and approximately 0.15 in humans (Mazza et al., 2023). In my view, given the stated aim of improved biological realism there is a conceptual gap here that needs to be thoroughly addressed in the discussion.
+        \item The minimum assembly size of six neurons appears to have been added ad hoc. Please justify this value. Given that the choice is arbitrary and unexplained, a sweep over minimum sizes would be valuable.
+        \item The parameter sweep selects the values that cause the fewest failures. Is there any reasoning behind, or biological implication of, these values? The optimal inhibition is the weakest value tested, at the boundary of the sweep; would the model improve with even less inhibition? This is not discussed.
+    \end{itemize}
+    
+    \item Comparisons with the AC model are scattered through the paper and are not exhaustive, the results section switches between assessing the E\%-WTA model and comparing it with the AC model. Restructuring so that the initial subsection/figure shows a full comparison of E\%-WTA and AC, addressing the assembly definition confound, would be useful for the reader.
+    
+    \item The discussion reads more as a summary of findings rather than a discussion in the context of previous literature. To reach publishable quality it would need almost complete rewriting. It should: discuss the stated aims, namely improved biological plausibility over the AC model, and whether this has been achieved in both parameter space and output; discuss the knowledge gap filled by the additional mechanisms included in the new model; compare the output with calcium imaging studies of in vivo microcircuits; include references to competing models; discuss the identified limitations in more detail.
+\end{enumerate}
+
+And some more specific comments:
+
+\begin{itemize}
+    \item the E\%-WTA theory, and the importance of gamma oscillations in cognition, could be explained more fully in the introduction to highlight the importance of the adaptation (for example by repurposing lines 123--126 of the Methods).
+    \item in Methods, the concepts behind the equations could be explained more fully for a broader audience.
+    \item the recovery metric is not defined in the methodology. Please state whether recovery is measured in a na\"ive M area or in a stimulated M area that is then restimulated, and when the comparison is made.
+    \item Statistics are performed and reported in the text or tables but not in figures or figure legends, results should be described with effect sizes.
+    \item The overlap between assemblies (showing that the E\%-WTA model produces more distinguishable assemblies from similar stimuli) is not normalised by assembly size, and E\%-WTA assemblies are on average smaller than AC assemblies.
+    \item The formation speed section (lines 243--253) is vague. Please state which values are meant by ``for other values of synaptic plasticity'': lower or higher, all of them, or a subset. Please also define ``speed to formation'' and state whether the same definition applies to both models. At line 253, please specify which part of ``the approach'' is meant: the E\%-WTA plus E:I approach, or the change in assembly definition.
+    \item Multiple unsupported claims are made:
+    \begin{itemize}
+        \item Lines 25--27: ``combined with an inhibition process based on the ratio between excitatory and inhibitory neurons observed in various regions of the cerebral cortex'' implies regional specificity. The authors actually use a single global, and somewhat disputed, structural E:I ratio of 80:20, and set inhibitory synaptic strength by model optimisation rather than by any empirical measure.
+        \item Line 270 (``indicating that E\%-WTA model enables efficient storage of an external stimulus in a memory area by regulating the size of the neural assemblies''). The results show only that E\%-WTA plus E:I reduces assembly size. Whether this is more efficient memory coding has not been tested. For example, are smaller assemblies better retrieved, and do they store as much information as larger ones?
+        \item Lines 347--348. The authors state that the finding that ``the inhibitory mechanism allowed for greater control over assembly size'' is ``consistent with theoretical findings, which indicate that inhibition assists in the maintenance of memory storage''. This is not supported by sufficient evidence or context. It could be claimed if retrieval were shown to improve when inhibition is present, but it is not defensible in its current form.
+        \item Lines 348--349. ``Both size and synaptic density showed low sensitivity to variations in synaptic plasticity, indicating greater stability of the E\%-WTA model\dots'' If ``greater stability'' means relative to the AC model, this comparison is not shown. If it is a known limitation of the AC model, it should be referenced.
+        \item Lines 360--362. ``These findings reinforce the hypothesis that a biologically plausible process for selecting neurons to fire, combined with the balance between excitation and inhibition, is essential for the efficient representation of information in cortical networks.'' This is overclaimed. The tests performed are insufficient to establish that biologically plausible processes are `essential' for information storage.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Minor points:}
+
+\begin{itemize}
+    \item Several cases: Under Vancouver referencing, citation numbers should serve only as references, not as the grammatical subject of a sentence, and the authors should therefore be named in the text: for example ``Papadimitriou et al. [16] proposed\dots'' in place of ``[16] proposed\dots''.
+    \item Line 21: the clause ``\dots incorporate essential aspects of biological neural computation, as neural activity, which is often\dots'' is confusing; ``such as'' may be intended.
+    \item Lines 68--70: this background is interesting but should be expanded to set the context of the current paper. More description of the original model's applications would help readers understand the purpose and usefulness of this study.
+    \item Line 81: more recent and relevant references for power-law scaling in neural networks are available. Reference 25 is listed under an ``Anonymous'' author.
+    \item Line 105: ``in your model'' should read ``in our model''.
+    \item Line 282: for ``slight influence'', please report the statistical significance and effect size.
+    \item Figure 1E: the time-window effect could be shown more clearly, for example by labelling each subplot $t = 0 + n$.
+    \item Figure 1F: adding a title to each plot and clarifying the difference between them (left: E\%-WTA; right: $k$-WTA AC) would help. The left plot uses blue for non-firing neurons, whereas the right plot uses the same blue for all neurons.
+    \item Figure 2: the definitions of, and conceptual difference between, $N_t$ and $X_t$ should be given in the legend. The colours blue and red mean different things in panels B and C (AC versus E\%-WTA, or two parameters within E\%-WTA), and $|X_t|$ is red in 2B but blue in 2C.
+    \item Figure 2 legend: ``assembly formation in your model'' should read ``\dots in our model''.
+    \item Figure 3C: the axis titles should state more explicitly what is being compared. As the matrices are symmetrical, triangular rather than square matrices would be clearer; the redundant half adds nothing and confuses the reader.
+    \item Figure 3D: please clarify whether this shows the number of neurons shared between multiple assemblies, as the description is unclear. Please also put the comparative plots on the same scale.
+    \item Figure 3 legend: ``Overlap matrix of the stimuli (right) and of the assemblies in a memory area (left)'' should read ``Overlap matrix of the stimuli (left) and of the assemblies in a memory area (right).''
+\end{itemize}
+
+\section*{Figure resubmission:}
+
+While revising your submission, we strongly recommend that you use PLOS's NAAS tool (\url{https://ngplosjournals.pagemajik.ai/artanalysis}) to test your figure files. NAAS can convert your figure files to the TIFF file type and meet basic requirements (such as print size, resolution), or provide you with a report on issues that do not meet our requirements and that NAAS cannot fix.
+
+After uploading your figures to PLOS's NAAS tool (\url{https://ngplosjournals.pagemajik.ai/artanalysis}), NAAS will process the files provided and display the results in the ``Uploaded Files'' section of the page as the processing is complete. If the uploaded figures meet our requirements (or NAAS is able to fix the files to meet our requirements), the figure will be marked as ``fixed'' above. If NAAS is unable to fix the files, a red ``failed'' label will appear above. When NAAS has confirmed that the figure files meet our requirements, please download the file via the download option, and include these NAAS processed figure files when submitting your revised manuscript.
+
+\section*{Reproducibility:}
+
+To enhance the reproducibility of your results, we recommend that authors of applicable studies deposit laboratory protocols in protocols.io, where a protocol can be assigned its own identifier (DOI) such that it can be cited independently in the future. Additionally, PLOS ONE offers an option to publish peer-reviewed clinical study protocols. Read more information on sharing protocols at \url{https://plos.org/protocols?utm_medium=editorial-email&utm_source=authorletters&utm_campaign=protocols}.
