@@ -1,4 +1,3 @@
-YAML
 name: Build LaTeX Document
 on: [push]
 jobs:
